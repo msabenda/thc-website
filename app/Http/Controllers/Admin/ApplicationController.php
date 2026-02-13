@@ -13,17 +13,19 @@ class ApplicationController extends Controller
 {
     public function index()
     {
-        $applications = Application::latest()->paginate(15); // Pagination added
+        $applications = Application::latest()->paginate(15);
         return view('admin.applications.index', compact('applications'));
     }
 
+    // ==============================
+    // APPROVE
+    // ==============================
     public function approve(Application $application)
     {
         if ($application->status !== 'pending') {
             return back();
         }
 
-        // Sequential membership ID
         $year = now()->year;
 
         $last = Application::where('status', 'approved')
@@ -45,27 +47,62 @@ class ApplicationController extends Controller
             'membership_id' => $membershipId,
         ]);
 
-        // Send email to applicant
         Mail::to($application->email)
             ->queue(new MembershipApproved($application, $membershipId));
 
         return back()->with('success', 'Member approved successfully.');
     }
 
+    // ==============================
+    // REJECT
+    // ==============================
     public function reject(Application $application)
-{
-    if ($application->status !== 'pending') {
-        return back();
+    {
+        if ($application->status !== 'pending') {
+            return back();
+        }
+
+        $application->update([
+            'status' => 'rejected',
+        ]);
+
+        Mail::to($application->email)
+            ->queue(new MembershipRejected($application));
+
+        return back()->with('success', 'Application rejected and applicant notified.');
     }
 
-    $application->update([
-        'status' => 'rejected',
-    ]);
+    // ==============================
+    // EDIT
+    // ==============================
+    public function edit(Application $application)
+    {
+        return view('admin.applications.edit', compact('application'));
+    }
 
-    // Notify applicant
-    Mail::to($application->email)
-        ->queue(new MembershipRejected($application));
+    // ==============================
+    // UPDATE
+    // ==============================
+    public function update(Request $request, Application $application)
+    {
+        $application->update($request->all());
 
-    return back()->with('success', 'Application rejected and applicant notified.');
-}
+        return redirect()
+    ->route('admin.applications.index')
+    ->with('success', 'Application updated successfully.');
+
+
+    }
+
+    // ==============================
+    // DELETE
+    // ==============================
+    public function destroy(Application $application)
+    {
+        $application->delete();
+
+        return redirect()
+            ->route('admin.applications.index')
+            ->with('success', 'Application deleted successfully.');
+    }
 }

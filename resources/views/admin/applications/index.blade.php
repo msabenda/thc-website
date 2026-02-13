@@ -91,7 +91,7 @@ h3.section-title { margin-bottom:15px; color:#0a3d62; }
     </div>
     <nav>
         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a href="{{ route('admin.applications') }}">Applications</a>
+        <a href="{{ route('admin.applications.index') }}">Applications</a>
         <a href="#">Settings</a>
     </nav>
     <div class="profile">

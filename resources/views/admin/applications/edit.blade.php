@@ -129,7 +129,7 @@ button.submit-btn:hover {background:#1e5aa8;}
     </div>
     <nav>
         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a href="{{ route('admin.applications') }}">Applications</a>
+        <a href="{{ route('admin.applications.index') }}">Applications</a>
         <a href="#">Settings</a>
     </nav>
     <div class="profile">
@@ -141,7 +141,7 @@ button.submit-btn:hover {background:#1e5aa8;}
 <div class="main">
 
     <!-- Back button -->
-    <a href="{{ route('admin.applications') }}" class="back-btn">← Back to Applications</a>
+    <a href="{{ route('admin.applications.index') }}" class="back-btn">← Back to Applications</a>
 
     <!-- Card / Form -->
     <div class="card">
