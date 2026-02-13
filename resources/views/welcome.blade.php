@@ -10,326 +10,296 @@
 
 <style>
 /* Global Reset */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Inter',sans-serif;
-    background:linear-gradient(135deg, #0a3d62 0%, #0f4f77 100%), 
-               url('{{ asset('img/background.jpg') }}') center/cover fixed;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:2rem;
-    color:#1e1e2a;
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0a3d62 0%, #0f4f77 100%), url('{{ asset('img/background.jpg') }}') center/cover fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #1e1e2a;
 }
 
 /* Card */
-.register-card{
-    max-width:1100px;
-    width:100%;
-    background:white;
-    border-radius:24px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.15);
-    display:grid;
-    grid-template-columns:1fr 1.2fr;
-    overflow:hidden;
-    animation:fadeIn .6s ease;
+.register-card {
+    max-width: 1080px;
+    width: 100%;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease;
 }
 
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
 /* Left Panel */
-.brand-panel{
-    background:linear-gradient(160deg,#0a3d62,#0f4f77);
-    padding:3rem 2rem;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+.brand-panel {
+    background: linear-gradient(160deg, #0a3d62, #0f4f77);
+    padding: 3rem 2.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.logo-container{
-    display:flex;
-    align-items:center;
-    gap:1rem;
-    margin-bottom:2rem;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.community-logo{
-    width:70px;
-    height:70px;
-    border-radius:16px;
-    background:white;
-    padding:10px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+.community-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
 
-.logo-text{
-    font-weight:700;
-    font-size:1.3rem;
-    line-height:1.2;
+.logo-text {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.2;
 }
 
 /* Mission & Values */
-.mission-preview h3{
-    font-size:.75rem;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#cbe4f3;
-    margin-bottom:.8rem;
+.mission-preview h3 {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #cbe4f3;
+    margin-bottom: .75rem;
 }
 
-.mission-statement{
-    background:rgba(255,255,255,0.08);
-    padding:1.5rem;
-    border-radius:16px;
-    line-height:1.6;
-    font-size:.95rem;
-    color:white;
-    backdrop-filter:blur(6px);
-    margin-bottom:1.5rem;
+.mission-statement {
+    background: rgba(255,255,255,0.1);
+    padding: 1.6rem;
+    border-radius: 18px;
+    line-height: 1.65;
+    font-size: .95rem;
+    color: white;
+    backdrop-filter: blur(6px);
+    margin-bottom: 1.5rem;
 }
 
-.values-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:.5rem;
+.values-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
 }
 
-.value-tag{
-    background:rgba(255,255,255,0.12);
-    border-radius:30px;
-    padding:.45rem 1rem;
-    font-size:.8rem;
-    transition:.3s;
-    cursor:default;
+.value-tag {
+    background: rgba(255,255,255,0.15);
+    border-radius: 35px;
+    padding: .5rem 1.2rem;
+    font-size: .85rem;
+    transition: .25s ease;
 }
 
-.value-tag:hover{
-    background:white;
-    color:#0a3d62;
-    transform:translateY(-2px);
+.value-tag:hover {
+    background: white;
+    color: #0a3d62;
+    transform: translateY(-2px);
 }
 
-/* Fee badge */
-.fee-badge{
-    margin-top:1.8rem;
-    background:white;
-    color:#0a3d62;
-    padding:.8rem 1.4rem;
-    border-radius:50px;
-    font-weight:600;
-    display:inline-flex;
-    align-items:center;
-    gap:.3rem;
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+/* Fee Badge */
+.fee-badge {
+    margin-top: 2rem;
+    background: white;
+    color: #0a3d62;
+    padding: .9rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
-.fee-badge strong{font-size:1.25rem;}
+.fee-badge strong { font-size: 1.3rem; }
 
 /* Right Panel */
-.form-panel{
-    padding:3rem 2.5rem;
-    background:#f9fbff;
-    display:flex;
-    flex-direction:column;
+.form-panel {
+    padding: 3rem 2.5rem;
+    background: #f9fbff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 28px 28px 0;
 }
 
-.form-header h3{
-    font-size:2rem;
-    font-weight:700;
-    color:#0a3d62;
+.form-header h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a3d62;
+    margin-bottom: .3rem;
 }
 
-.form-header p{
-    color:#5f7d95;
-    margin-top:.5rem;
-    font-size:0.95rem;
+.form-header p {
+    color: #5f7d95;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
 }
 
 /* Inputs */
-.form-grid{
-    display:flex;
-    flex-direction:column;
-    gap:1.5rem;
-    margin-top:2rem;
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
 }
 
-.input-group label{
-    font-size:.8rem;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:.05em;
-    color:#1e3b4c;
-    margin-bottom:.5rem;
-    display:block;
+.input-group label {
+    font-size: .85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #1e3b4c;
+    margin-bottom: .4rem;
+    display: block;
 }
 
-.input-field, #phone{
-    width:100%;
-    padding:1rem 1.2rem;
-    border:1.5px solid #e6eef4;
-    border-radius:14px;
-    font-size:.95rem;
-    transition:.25s ease;
+.input-field, #phone {
+    width: 100%;
+    padding: 1.05rem 1.3rem;
+    border: 1.5px solid #e6eef4;
+    border-radius: 16px;
+    font-size: .95rem;
+    transition: .25s ease;
 }
 
-.input-field:focus, #phone:focus{
-    border-color:#0a3d62;
-    box-shadow:0 0 0 4px rgba(10,61,98,0.08);
-    outline:none;
+.input-field:focus, #phone:focus {
+    border-color: #0a3d62;
+    box-shadow: 0 0 0 5px rgba(10,61,98,0.1);
+    outline: none;
 }
 
 /* Radio group */
-.radio-group{
-    display:flex;
-    flex-direction:column;
-    gap:.75rem;
-    padding:1rem;
-    background:#f7fbff;
-    border-radius:16px;
-    border:1px solid #e3eef5;
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+    padding: 1rem;
+    background: #f7fbff;
+    border-radius: 18px;
+    border: 1px solid #e3eef5;
 }
 
-.radio-group input[type="radio"]{
-    accent-color:#0a3d62;
-}
+.radio-group input[type="radio"] { accent-color: #0a3d62; }
 
 /* File Upload */
-.file-upload{
-    border:2px dashed #c8dbe6;
-    border-radius:20px;
-    padding:1.8rem;
-    background:#f9fcff;
-    cursor:pointer;
-    text-align:center;
-    transition:.25s ease;
+.file-upload {
+    border: 2px dashed #c8dbe6;
+    border-radius: 22px;
+    padding: 1.8rem;
+    background: #f9fcff;
+    cursor: pointer;
+    text-align: center;
+    transition: .25s ease;
 }
 
-.file-upload:hover{
-    border-color:#0a3d62;
-    background:#eef6fb;
-    transform:translateY(-2px);
+.file-upload:hover { border-color: #0a3d62; background: #eef6fb; transform: translateY(-2px); }
+
+.file-upload.dragover {
+    border-color: #0a3d62;
+    background: #e3f2fb;
+    box-shadow: 0 0 0 5px rgba(10,61,98,0.1);
 }
 
-.file-upload.dragover{
-    border-color:#0a3d62;
-    background:#e3f2fb;
-    box-shadow:0 0 0 4px rgba(10,61,98,0.08);
+.file-upload.selected {
+    border-color: #28a745;
+    background: #f0fff4;
 }
 
-.file-upload.selected{
-    border-color:#28a745;
-    background:#f0fff4;
-}
+.upload-content { display: flex; flex-direction: column; align-items: center; gap: .5rem; }
 
-.upload-content{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:.4rem;
-}
+.upload-text strong { font-size: .95rem; color: #0a3d62; }
+.upload-text span { font-size: .8rem; color: #6b8a9c; }
 
-.upload-text strong{
-    font-size:.95rem;
-    color:#0a3d62;
-}
-
-.upload-text span{
-    font-size:.8rem;
-    color:#6b8a9c;
-}
-
-.attached-info{
-    margin-top:.5rem;
-    font-size:.85rem;
-    font-weight:600;
-    color:#0a3d62;
+.attached-info {
+    margin-top: .5rem;
+    font-size: .85rem;
+    font-weight: 600;
+    color: #0a3d62;
 }
 
 /* Terms */
-.terms-checkbox{
-    display:flex;
-    gap:.6rem;
-    background:#f7fbff;
-    padding:1rem;
-    border-radius:16px;
-    border:1px solid #e3eef5;
-    font-size:.85rem;
+.terms-checkbox {
+    display: flex;
+    gap: .65rem;
+    background: #f7fbff;
+    padding: 1rem;
+    border-radius: 18px;
+    border: 1px solid #e3eef5;
+    font-size: .85rem;
 }
 
 /* Button */
-.btn-register{
-    background:#0a3d62;
-    color:white;
-    border:none;
-    padding:1.1rem;
-    border-radius:40px;
-    font-weight:600;
-    font-size:1rem;
-    cursor:pointer;
-    transition:.3s ease;
-    box-shadow:0 8px 25px rgba(10,61,98,.2);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:.5rem;
+.btn-register {
+    background: #0a3d62;
+    color: white;
+    border: none;
+    padding: 1.15rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: .3s ease;
+    box-shadow: 0 12px 30px rgba(10,61,98,.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
 }
 
-.btn-register:hover{
-    background:#0f4f77;
-    transform:translateY(-2px);
+.btn-register:hover {
+    background: #0f4f77;
+    transform: translateY(-2px);
 }
 
-.btn-register.loading{
-    opacity:.7;
-    pointer-events:none;
-}
+.btn-register.loading { opacity: .7; pointer-events: none; }
 
 /* Success Card */
-.success-card{
-    background:#f0fff4;
-    border:1px solid #28a745;
-    padding:2rem;
-    border-radius:18px;
+.success-card {
+    background: #f0fff4;
+    border: 1px solid #28a745;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.error-message{
-    color:#dc3545;
-    font-size:.8rem;
-    margin-top:.3rem;
-}
-
-.file-hint{
-    font-size:.75rem;
-    color:#8aa2b2;
-    margin-top:.3rem;
-}
+/* Error */
+.error-message { color: #dc3545; font-size: .8rem; margin-top: .3rem; }
+.file-hint { font-size: .75rem; color: #8aa2b2; margin-top: .3rem; }
 
 /* Footer */
-.form-panel .footer-note{
-    margin-top:1.5rem;
-    text-align:center;
-    font-size:0.7rem;
-    color:#8aa2b2;
-    border-top:1px solid #edf3f7;
-    padding-top:1.25rem;
+.form-panel .footer-note {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: .75rem;
+    color: #8aa2b2;
+    border-top: 1px solid #edf3f7;
+    padding-top: 1.5rem;
 }
 
 /* Responsive */
-@media(max-width:900px){
-    .register-card{
-        grid-template-columns:1fr;
-        max-width:600px;
+@media(max-width:900px) {
+    .register-card {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        border-radius: 24px;
     }
-    .brand-panel{
-        padding:2rem;
-    }
-    .form-panel{
-        padding:2rem;
+    .brand-panel, .form-panel {
+        padding: 2rem;
+        border-radius: 0 0 24px 24px;
     }
 }
 </style>
@@ -347,8 +317,9 @@ body{
         <div class="mission-preview">
             <h3>Our Mission</h3>
             <div class="mission-statement">
-                <p>Promoting Tanzanian culture and heritage while connecting Tanzanian-American children with their roots.</p>
+                Promoting Tanzanian culture and heritage while connecting Tanzanian-American children with their roots.
             </div>
+
             <h3 style="margin-bottom:0.5rem;">Values</h3>
             <div class="values-list">
                 <span class="value-tag">Cultural Celebration</span>
@@ -366,13 +337,13 @@ body{
     <!-- Right Panel -->
     <div class="form-panel">
         <div class="form-header">
-            <h3>Become Active Member</h3>
+            <h3>Become an Active Member</h3>
             <p>Join us in preserving Tanzanian heritage</p>
         </div>
 
         @if(session('success'))
         <div class="success-card">
-            <h3>🎉 Thank you!</h3>
+            <h3>Thank you for registering!</h3>
             <p>{{ session('success') }}</p>
             <p style="font-size:0.85rem; margin-top:1rem; opacity:0.9;">
                 We'll review your application within 48 hours.<br>
@@ -384,14 +355,16 @@ body{
             @csrf
             <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off">
 
+            <!-- Full Name -->
             <div class="input-group">
-                <label for="full_name">Full name</label>
+                <label for="full_name">Full Name</label>
                 <input type="text" name="full_name" id="full_name" class="input-field" placeholder="John Petro Doe" value="{{ old('full_name') }}" required autofocus>
                 @error('full_name') <div class="error-message">{{ $message }}</div> @enderror
             </div>
 
+            <!-- Phone -->
             <div class="input-group">
-                <label for="phone">Phone number</label>
+                <label for="phone">Phone Number</label>
                 <input type="tel" id="phone" name="phone" placeholder="(201) 555-0123" value="{{ old('phone') }}" required>
                 <input type="hidden" name="phone_international" id="phone_international">
                 <div class="file-hint">US-based number only</div>
@@ -399,12 +372,14 @@ body{
                 @error('phone') <div class="error-message">{{ $message }}</div> @enderror
             </div>
 
+            <!-- Email -->
             <div class="input-group">
-                <label for="email">Email address</label>
+                <label for="email">Email Address</label>
                 <input type="email" name="email" id="email" class="input-field" placeholder="john@example.com" value="{{ old('email') }}" required>
                 @error('email') <div class="error-message">{{ $message }}</div> @enderror
             </div>
 
+            <!-- Fee Paid -->
             <div class="input-group">
                 <label>Registration fee ($25) already paid?</label>
                 <div class="radio-group">
@@ -420,10 +395,11 @@ body{
                 @error('fee_paid') <div class="error-message">{{ $message }}</div> @enderror
             </div>
 
+            <!-- Receipt Upload -->
             <div class="input-group">
-                <label for="receipt">Upload payment receipt</label>
+                <label for="receipt">Upload Payment Receipt</label>
                 <div class="file-upload" id="drop-area">
-                    <input type="file" name="receipt" id="receipt" accept="image/*,.pdf" style="position:absolute; opacity:0; pointer-events:none; width:0; height:0;">
+                    <input type="file" name="receipt" id="receipt" accept="image/*,.pdf" style="position:absolute; opacity:0; width:0; height:0;">
                     <div class="upload-content">
                         <div class="upload-text">
                             <strong>Upload payment receipt</strong>
@@ -438,14 +414,15 @@ body{
                 @error('receipt') <div class="error-message">{{ $message }}</div> @enderror
             </div>
 
+            <!-- Terms -->
             <div class="terms-checkbox">
                 <input type="checkbox" name="terms_accepted" id="terms" value="1" required {{ old('terms_accepted') ? 'checked' : '' }}>
-                <label for="terms">I agree with the <a href="#">Terms & Conditions</a> and <a href="#">Privacy & Cookies Policy</a> of Tanzania Houston Community.</label>
+                <label for="terms">I agree with the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> of Tanzania Houston Community.</label>
                 @error('terms_accepted') <div class="error-message">{{ $message }}</div> @enderror
             </div>
 
             <button type="submit" class="btn-register" id="submit-btn">
-                <span>Join the community</span> <span>→</span>
+                Join the Community
             </button>
         </form>
         @endif
@@ -464,9 +441,8 @@ const hiddenPhone = document.getElementById("phone_international");
 const form = document.getElementById("join-form");
 const submitBtn = document.getElementById("submit-btn");
 
-let iti;
 if(phoneInput){
-    iti = window.intlTelInput(phoneInput,{
+    const iti = window.intlTelInput(phoneInput,{
         initialCountry:"us",
         separateDialCode:true,
         utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
@@ -475,9 +451,8 @@ if(phoneInput){
         autoPlaceholder:"aggressive",
         nationalMode:false
     });
-    const updateHidden = () => {
-        hiddenPhone.value = iti.isValidNumber() ? iti.getNumber() : '';
-    };
+
+    const updateHidden = () => { hiddenPhone.value = iti.isValidNumber() ? iti.getNumber() : ''; };
     phoneInput.addEventListener('input', updateHidden);
     phoneInput.addEventListener('countrychange', updateHidden);
 
