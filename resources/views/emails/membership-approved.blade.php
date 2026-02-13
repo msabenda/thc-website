@@ -1,24 +1,22 @@
 @component('mail::message')
-# Welcome to Tanzania Houston Community! 🎉
+<img src="{{ asset('img/logo.png') }}" alt="THC Logo" style="max-width:150px;margin-bottom:15px">
 
-Dear {{ $application->full_name }},
+# Your THC Membership Has Been Approved! 🎉
 
-We are thrilled to inform you that your membership application has been **approved**.
+Hello {{ $application->full_name }},
+
+We are pleased to inform you that your membership application has been **approved**.
 
 **Membership ID:** {{ $membershipId }}  
-**Start Date:** {{ now()->format('F j, Y') }}  
-**Expiration Date:** December 31, {{ now()->year + 1 }}
+**Reference:** {{ $application->application_ref }}  
+**Approved on:** {{ now()->format('M j, Y g:i A') }}
 
-You are now officially part of our warm and vibrant community!
-
-Join our WhatsApp group to connect with fellow members:
-
-@component('mail::button', ['url' => 'https://chat.whatsapp.com/YOUR_GROUP_INVITE_LINK_HERE', 'color' => 'success'])
-Join WhatsApp Group →
+@component('mail::button', ['url' => 'http://localhost:8000'])
+Visit THC Community
 @endcomponent
 
-We look forward to seeing you at our next event!
+Thank you for joining the **THC Community**!
 
 Warm regards,<br>
-**Tanzania Houston Community Admin Team**
+**Tanzania Houston Community Team**
 @endcomponent

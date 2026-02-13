@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewApplicationSubmitted;
+use App\Mail\MembershipApproved;
 use Illuminate\Support\Facades\Storage;
 
 class ApplicationController extends Controller
@@ -53,14 +56,13 @@ class ApplicationController extends Controller
         ]);
 
         // === NOTIFY ALL ADMINS ===
-$adminEmails = array_filter(explode(',', env('ADMIN_EMAILS', ''))); // put in .env
-
-if (count($adminEmails) > 0) {
-    foreach ($adminEmails as $email) {
-        \Illuminate\Support\Facades\Mail::to(trim($email))
-            ->queue(new \App\Mail\NewApplicationSubmitted($application));
-    }
+// Notify all admins after storing application
+// Notify all admins asynchronously
+$adminEmails = array_filter(explode(',', env('ADMIN_EMAILS', '')));
+foreach ($adminEmails as $email) {
+    Mail::to(trim($email))->queue(new NewApplicationSubmitted($application));
 }
+
 
         // === SUCCESS FEEDBACK ON SAME PAGE ===
         return back()->with('success', "Application received! Ref: {$ref}. We'll review within 48 hours. Check your email (including spam).");
