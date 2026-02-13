@@ -13,8 +13,13 @@ use App\Http\Controllers\ApplicationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing'); // New landing page
 })->name('home');
+
+Route::get('/welcome', function () {
+    return view('welcome'); // Existing registration form
+})->name('welcome');
+
 
 Route::post('/join', [ApplicationController::class, 'store'])
     ->name('applications.store');
