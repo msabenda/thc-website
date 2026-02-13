@@ -110,7 +110,7 @@ h3.section-title { margin-bottom:15px; color:#0a3d62; }
     </div>
 
     <!-- Overview Stats Cards -->
-    <div class="cards">
+    {{-- <div class="cards">
         <div class="card total">
             <h3>Total Applications</h3>
             <p>{{ $total ?? 0 }}</p>
@@ -127,7 +127,7 @@ h3.section-title { margin-bottom:15px; color:#0a3d62; }
             <h3>Rejected</h3>
             <p>{{ $rejected ?? 0 }}</p>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Recent Applications Table -->
     @if(isset($applications) && $applications->count() > 0)
